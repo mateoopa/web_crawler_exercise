@@ -19,3 +19,9 @@ web crawler exercise for datloop
     ```Shell
     python crawler.py <start_url: string> <depth: number>
     ```
+    
+    For example:
+    
+    ```Shell
+    python crawler.py https://github.com/ 3
+    ```
