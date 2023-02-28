@@ -1,4 +1,4 @@
-# web_crawler_exercise
+# Web crawler Dataloop exercise
 web crawler exercise for datloop
 
 ## Prerequisites
