@@ -90,8 +90,6 @@ class GetParam:
         if len(sys.argv) == 3:
             self.start_url = str(sys.argv[1])
             self.depth = int(sys.argv[2])
-            # self.start_url = 'https://pimeyes.com/en'
-            # self.depth = 3
         else:
             print('Please pass parameters in this order <start_url: string> <depth: number>')
             sys.exit(0)

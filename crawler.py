@@ -3,6 +3,7 @@ import module
 import json
 import validators
 import traceback
+import sys
 
 
 class WebCrawler:
@@ -20,6 +21,11 @@ class WebCrawler:
         links = self.bot.fe(multiple=True, by=By.XPATH, elements=links_xpath, stop=True)
         all_links = [self.parameters.start_url]
         results = []
+
+        if self.parameters.depth > len(links):
+            print(f'Depth number exceeded. Links available for {self.parameters.start_url} are {len(links)}')
+            self.bot.quit_driver()
+            sys.exit(0)
 
         for counter, link in enumerate(links, 1):
             try:
@@ -40,8 +46,10 @@ class WebCrawler:
 
             if validators.url(link):
                 self.bot.navigate(link, True)
-                images = self.bot.fe(multiple=True, by=By.XPATH, elements=img_xpath, stop=True)
+                images = self.bot.fe(multiple=True, by=By.XPATH, elements=img_xpath, stop=False)
 
+                if not images:
+                    continue
                 for image in images:
                     try:
                         if not image.get_attribute('src'):
