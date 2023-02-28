@@ -21,7 +21,7 @@ class WebCrawler:
         all_links = [self.parameters.start_url]
         results = []
 
-        for counter, link in enumerate(links, 0):
+        for counter, link in enumerate(links, 1):
             try:
                 if counter > self.parameters.depth:
                     break
