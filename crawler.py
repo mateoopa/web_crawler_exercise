@@ -61,7 +61,7 @@ class WebCrawler:
                     except (Exception,):
                         continue
         self.bot.quit_driver()
-        self.results = {"results": [results]}
+        self.results = {"results": results}
 
     def save_json(self):
         json_object = json.dumps(self.results, indent=4)
