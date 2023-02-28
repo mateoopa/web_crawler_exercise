@@ -14,7 +14,7 @@ web crawler exercise for datloop
     
 ## Run the web crawler
 
-1. Run the following command in your CLI to start the application.
+1. Run the following command in your CLI to start the web crawler.
 
     ```Shell
     python python crawler.py <start_url: string> <depth: number>
