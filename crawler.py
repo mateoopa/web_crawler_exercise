@@ -18,7 +18,7 @@ class WebCrawler:
         links_xpath = '//a[@href and not(@disabled)]'
 
         links = self.bot.fe(multiple=True, by=By.XPATH, elements=links_xpath, stop=True)
-        all_links = []
+        all_links = [self.parameters.start_url]
         results = []
 
         for counter, link in enumerate(links, 0):
@@ -44,6 +44,8 @@ class WebCrawler:
 
                 for image in images:
                     try:
+                        if not image.get_attribute('src'):
+                            continue
                         my_dict = {'imageUrl': image.get_attribute('src'),
                                    'sourceUrl': self.bot.driver.current_url,
                                    'depth': counter}
